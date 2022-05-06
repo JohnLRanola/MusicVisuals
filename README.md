@@ -1,8 +1,8 @@
 # Music Visualiser Project
 
-Name:
+Names: John Ranola, Nadia Labuda
 
-Student Number: 
+Student Number: C20309073
 
 ## Instructions
 - Fork this repository and use it a starter project for your assignment
