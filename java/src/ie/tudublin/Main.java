@@ -4,6 +4,8 @@ import example.CubeVisual;
 import example.MyVisual;
 import example.RotatingAudioBands;
 
+// lol i am doing cool code
+
 public class Main
 {	
 
