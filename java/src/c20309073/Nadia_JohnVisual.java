@@ -11,10 +11,11 @@ public class Nadia_JohnVisual extends Visual {
     AudioInput ai;
     AudioBuffer ab;
 
+    //Initialises arrays for our visualiser to use
     int n = 1000;
-    float [] alpha=new float[n]; 
-    float [] alphaVel=new float[n]; 
-    float [] radianti=new float[n]; 
+    float [] a=new float[n]; 
+    float [] vel=new float[n]; 
+    float [] rad=new float[n]; 
     float [] r=new float[n];
     float [] x1=new float[n];
     float [] y1=new float[n];
@@ -34,7 +35,7 @@ public class Nadia_JohnVisual extends Visual {
 
     public void settings()
     {
-        fullScreen(P3D);
+        fullScreen(P3D, SPAN);
     }
 
     public void setup()
@@ -46,8 +47,8 @@ public class Nadia_JohnVisual extends Visual {
         frameRate(24);
 
         for(int i=0; i<n; i++){
-            alpha[i]=random(30,100);
-            alphaVel[i]=random(-2,2);
+            a[i]=random(30,100);
+            vel[i]=random(-2,2);
             r[i]=random(20,330);
         }
     }
@@ -72,25 +73,33 @@ public class Nadia_JohnVisual extends Visual {
         switch (mode)
         {
             case 0:
-            background(247, 156, 244);
-            textAlign(CENTER, CENTER);
-            textSize(width/20.0f);
+            {
+                background(247, 156, 244);
 
-            //This shows the title of our song
-            fill(143, 0, 0);
-            text("Surface Pressure from Encanto", width/2.0f, height/3.0f);
-            
-            textSize(width/35.0f);
+                fill(0);
+                textAlign(CENTER, CENTER);
+                textSize(width/15.0f);
+                text("Surface Pressure from Encanto", width/2.02f, height/3.02f);
 
-            //This lists our visualisers
-            fill(143, 0, 0);
-            text("Press 1 for: ", width/2.0f, (height/3.0f) + 100);
-            text("Press 2 for: ", width/2.0f, (height/3.0f) + 150);
-            text("Press 3 for: ", width/2.0f, (height/3.0f) + 200);
-            text("Press 4 for: ", width/2.0f, (height/3.0f) + 250);
-            text("Press 5 for: ", width/2.0f, (height/3.0f) + 300);
-            text("Press SPACEBAR to pause/start ", width/2.0f, (height/3.0f) + 450);
-            text("Press 0 to return back to MENU", width/2.0f, (height/3.0f) + 500);
+                //This shows the title of our song
+                fill(143, 0, 0);
+                textAlign(CENTER, CENTER);
+                textSize(width/15.0f);
+                text("Surface Pressure from Encanto", width/2.0f, height/3.0f);
+
+                textSize(width/35.0f);
+                //This lists our visualisers
+                fill(143, 0, 0);
+                text("Press 1 for Fireworks Visualiser ", width/2.0f, (height/3.0f) + 100);
+                text("Press 2 for Balls Visualiser", width/2.0f, (height/3.0f) + 150);
+                text("Press 3 for Heart Visualiser", width/2.0f, (height/3.0f) + 200);
+                text("Press 4 for Space Visualiser ", width/2.0f, (height/3.0f) + 250);
+                text("Press 5 for Spikes Visualiser", width/2.0f, (height/3.0f) + 300);
+
+                textSize(width/60.0f);
+                text("Press SPACEBAR to pause/start ", width/2.0f, (height/3.0f) + 450);
+                text("Press 0 to return back to MENU", width/2.0f, (height/3.0f) + 500);
+            }
 
             break;
 
@@ -151,7 +160,8 @@ public class Nadia_JohnVisual extends Visual {
                     var z1 = floor(map(i,0,width,0,ap.length())) * 300 + height / 2;
                     point(z,(float) z1);
                 }   
-        
+                
+            //This rotates the whole visual using sound and a constant vairable
             spin1 += 0.008;
             spin2 += ap.right.get(spin1);
             }
@@ -190,6 +200,10 @@ public class Nadia_JohnVisual extends Visual {
             case 3:
             {
                 background(0);
+                noStroke();
+                fill(186, 54, 147);
+
+                //This centers our visualiser
                 translate(width/2, height/2);
                 for (float angle = -90; angle < 90; angle += 0.05)
                 {
@@ -232,20 +246,21 @@ public class Nadia_JohnVisual extends Visual {
             case 5:
             {
                 background(0);
-                for(int i=0; i < n; i++){
-                    radianti[i]=radians(alpha[i]);
-                    x1[i]=width/2+r[i] * ap.left.get(i) * cos(radianti[i] * 100);
-                    y1[i]=height/2+r[i] * ap.left.get(i) * sin(radianti[i] * 100);
+                for(int i=0; i < n; i++)
+                {
+                    rad[i] = radians(a[i]);
+                    x1[i] = width/2+r[i] * ap.left.get(i) * cos(rad[i] * 100);
+                    y1[i] = height/2+r[i] * ap.left.get(i) * sin(rad[i] * 100);
                     strokeWeight(2);
                     stroke(i, 43, 104);
                     fill(237, 145, 183);
-                    line(width/2,height/2,x1[i],y1[i]);
+                    line(width/2, height/2, x1[i], y1[i]);
                     noStroke();
-                    ellipse(x1[i],y1[i],10,10);
-                    alpha[i]=alpha[i]+alphaVel[i];
+                    ellipse(x1[i], y1[i] ,10 , 10);
+                    a[i] = a[i] + vel[i];
                 }
             }
-
+            break;
             
         }
     }   
