@@ -21,10 +21,16 @@ public class Nadia_JohnVisual extends Visual {
     float [] r=new float[n];
     float [] x1=new float[n];
     float [] y1=new float[n];
-        int mode = 0;
+
+    //this is for the menu
+    int mode = 0;
+
     int time = 0;
-    float n4;
-    float n6;
+
+    //Used for the rotation for one of our visuals
+    int spin1;
+    float spin2;
+
     // final means that the value cannot be changed
     final int H = 100;
     float x = 0, y = 0;
@@ -68,39 +74,77 @@ public class Nadia_JohnVisual extends Visual {
         // mode is taken from the keyPressed function
         switch (mode)
         {
-			case 0:
+            case 0:
+            background(255);
+            fill(174, 237, 142);
+            textAlign(CENTER, CENTER);
+            textSize(width/20.0f);
+
+            //This shows the title of our song
+            text("Surface Pressure from Encanto", width/2.0f, height/3.0f);
+            
+            textSize(width/35.0f);
+
+            //This lists our visualisers
+            text("Press 1 for: ", width/2.0f, (height/3.0f) + 100);
+            text("Press 2 for: ", width/2.0f, (height/3.0f) + 150);
+            text("Press 3 for: ", width/2.0f, (height/3.0f) + 200);
+            text("Press 4 for: ", width/2.0f, (height/3.0f) + 250);
+            text("Press 5 for: ", width/2.0f, (height/3.0f) + 300);
+
+            break;
+
+			case 1:
             {
                 fill(0,50);  
                 noStroke();
+
+
                 rect(0, 0, width, height);
+
+                //This centers our visual
                 translate(width/2, height/2);
-               
-                for (int i = 0; i < ap.bufferSize() - 1; i++) {
-               
-                  float angle = sin(i+n4)* 10; 
-                  float angle2 = sin(i+n6)* 300; 
-               
-                  float x = sin(radians(i))*(angle2+30); 
-                  float y = cos(radians(i))*(angle2+30);
-               
-                  float x3 = sin(radians(i))*(500/angle); 
-                  float y3 = cos(radians(i))*(500/angle);
-               
-                    fill (255, 255, 153); //yellow
-                    ellipse(x, y, ap.left.get(i)*10, ap.left.get(i)*10);
                 
-                    fill (255, 102, 217); //pink
+                for (int i = 0; i < ap.bufferSize() - 1; i++) {
+                    
+                    //This variable is used to make the inner circle 
+                    float angle = sin(i+spin1)* 10; 
+
+                    //This variable is used to make the outer circle
+                    float angle2 = sin(i+spin2)* 300; 
+                    
+                    //This float is used to spread particles in the x axis
+                    float x = sin(radians(i))*(angle2+30); 
+
+                    //This float is used to spread particles in the y axis
+                    float y = cos(radians(i))*(angle2+30);
+                    
+                    //This float is used to make the inner circle
+                    float x3 = sin(radians(i))*(500/angle); 
+
+                    //This float is used to make the outer circle
+                    float y3 = cos(radians(i))*(500/angle);
+                    
+                    fill (255, 255, 153); 
+
+                    //This ellipse makes the inner circle using our x and y values from earlier. This then reacts using our audio
+                    ellipse(x, y, ap.left.get(i)*10, ap.left.get(i)*10);
+                    
+                    fill (255, 102, 217); 
+                    
+                    //This is used to make the particles 
                     rect(x3, y3, ap.left.get(i)*20, ap.left.get(i)*10);
                 
-                    stroke (204, 102, 0); //orange
+                    stroke (204, 102, 0); 
+
+                    //This is used to make the particles
                     rect(x, y, ap.right.get(i)*10, ap.left.get(i)*10);
                 
                 
-                    fill(255, 0, 102); //wt
+                    fill(255, 0, 102); 
+
+                    //This is used to make the particles
                     rect(x3, y3, ap.right.get(i)*10, ap.right.get(i)*20);
-                    
-                    //use this for when song explodes after drip drip drip
-                    //line(ap.left.get(i)*x, ap.left.get(i)*y, y3, x3);
         
                     
                     var z = i;
@@ -108,28 +152,42 @@ public class Nadia_JohnVisual extends Visual {
                     point(z,(float) z1);
                 }   
         
-            n4 += 0.008;
-            n6 += 0.04;
+            spin1 += 0.008;
+            spin2 += ap.right.get(spin1);
             }
             break;
 
-            case 1:
+            case 2:
             {
                 background(0);
-                for(int i = 0; i < ap.bufferSize(); i+= 10){
+                
+                //This makes the circle that are made depending on the bufferSize
+                for(int i = 0; i < ap.bufferSize(); i+= 20){
+                    
+                  //This centers our visual in the x axis and at the same time uses our audio to react on the x axis  
                   float x = cos(radians(i)) * ap.left.get(i) * 500 + width / 2;
+
+                  //This centers our visual in the y axis and at the same time uses our audio to react on the y axis
                   float y = sin(radians(i))  * ap.right.get(i) * 340 * ap.left.get(i) + height / 2;
+                  
                   float w = cos(radians(time + i)) * 200;
-                  w = abs(w );
-                  stroke(54, 32, 125);   
+
+                  w = abs(w);
+
+                  //Colours of our lines
+                  stroke(54, 32, 125);  
+
+                  //Colours of the circle
                   fill(147, 207, 180, 99);
+
+                  //This is the shape using our varaibles earlier to make it react to sound
                   ellipse(x, y, w, w);
                 }
                 time++;
             }
             break;
 
-            case 2:
+            case 3:
             {
                 background(0);
                 translate(width/2, height/2);
@@ -149,7 +207,7 @@ public class Nadia_JohnVisual extends Visual {
             }
             break;
 
-            case 3:
+            case 4:
             {
                 background(0);
                 float f = (float)(frameCount*.01);
@@ -171,7 +229,7 @@ public class Nadia_JohnVisual extends Visual {
             }
             break;
 
-            case 4:
+            case 5:
             {
                 background(0);
                 for(int i=0; i < n; i++){
@@ -179,8 +237,8 @@ public class Nadia_JohnVisual extends Visual {
                     x1[i]=width/2+r[i] * ap.left.get(i) * cos(radianti[i] * 100);
                     y1[i]=height/2+r[i] * ap.left.get(i) * sin(radianti[i] * 100);
                     strokeWeight(2);
-                        stroke(i, 43, 104);
-                        fill(237, 145, 183);
+                    stroke(i, 43, 104);
+                    fill(237, 145, 183);
                     line(width/2,height/2,x1[i],y1[i]);
                     noStroke();
                     ellipse(x1[i],y1[i],10,10);
