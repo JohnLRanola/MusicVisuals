@@ -39,13 +39,13 @@ public class balls extends PApplet {
     public void draw() {
         background(0);
         for(int i = 0; i < ap.bufferSize(); i+= 10){
-          float x = cos(radians(i))  * 500 * ap.left.get(i) + width / 2;
-          float y = sin(radians(i))  * 500 * ap.right.get(i) + height / 2;
+          float x = cos(radians(i)) * ap.left.get(i) * 500 + width / 2;
+          float y = sin(radians(i))  * ap.right.get(i) * 340 * ap.left.get(i) + height / 2;
           float w = cos(radians(time + i)) * 200;
-          w = abs(w);
-          stroke(x, y, 360);   
-          fill(x, y, 30, 10);
-          ellipse(x, y, w, x);
+          w = abs(w );
+          stroke(54, 32, 125);   
+          fill(147, 207, 180, 99);
+          ellipse(x, y, w, w);
         }
         time++;
 
