@@ -14,10 +14,20 @@ public class Nadia_JohnVisual extends Visual {
     AudioInput ai;
     AudioBuffer ab;
 
-    int mode = 0;
+    int n = 1000;
+    float [] alpha=new float[n]; 
+    float [] alphaVel=new float[n]; 
+    float [] radianti=new float[n]; 
+    float [] r=new float[n];
+    float [] x1=new float[n];
+    float [] y1=new float[n];
+        int mode = 0;
     int time = 0;
     float n4;
     float n6;
+    // final means that the value cannot be changed
+    final int H = 100;
+    float x = 0, y = 0;
 
     public void settings()
     {
@@ -31,6 +41,12 @@ public class Nadia_JohnVisual extends Visual {
         ap.play();
         colorMode(RGB);
         frameRate(24);
+
+        for(int i=0; i<n; i++){
+            alpha[i]=random(30,100);
+            alphaVel[i]=random(-2,2);
+            r[i]=random(20,330);
+        }
     }
 
     public void keyPressed() {
@@ -115,8 +131,65 @@ public class Nadia_JohnVisual extends Visual {
 
             case 2:
             {
-                
+                background(0);
+                translate(width/2, height/2);
+                for (float angle = -90; angle < 90; angle += 0.05)
+                {
+                    for (float q = 1; q < 2; q += 0.2)
+                    {
+                        float a = q*180;
+                        float t = (float) (angle + frameCount * 1.5 + a);
+                        float x = 16*pow(sin(radians(t)), 3);
+                        float y = -13*cos(radians(t)) + 5*cos(radians(2*t)) + ap.right.get((int) q) + 2*cos(radians(3*t)) + cos(radians(4*t))+ ap.right.get((int) q);
+                        float s = cos(radians(angle))*q*7;
+                        ellipse(x*q*15, y*q*15, s, s);
+                    }
+                }
+
             }
+            break;
+
+            case 3:
+            {
+                background(0);
+                float f = (float)(frameCount*.01);
+          
+                // H is 100 so these  two for loops are carried out 100 times each
+                // i goes from 0 to 99
+                for (int i = 0; i < H; i++)
+                {
+                  for (int j = 0; j < H; j++)
+                  {
+                    float a = i * 2 - y + f;
+                    float b = x + a / H + f;
+                    x = sin(b) - cos(a);
+                    y = cos(b) - sin(a);
+                    fill (map(i, 0, H, 0, 255), map(j, 0, H, 0, 255), (x + y)*256);
+                    rect (x * width/4 + width/2, y * height/4 + height/2, ap.right.get(i)*20, ap.left.get(i)*20);
+                  } // end for
+                } // end for 
+            }
+            break;
+
+            case 4:
+            {
+                background(0);
+                for(int i=0; i < n; i++){
+                    radianti[i]=radians(alpha[i]);
+                    x1[i]=width/2+r[i] * ap.left.get(i) * cos(radianti[i] * 100);
+                    y1[i]=height/2+r[i] * ap.left.get(i) * sin(radianti[i] * 100);
+                    strokeWeight(2);
+                        stroke(i, 43, 104);
+                        fill(237, 145, 183);
+                    line(width/2,height/2,x1[i],y1[i]);
+                    noStroke();
+                    ellipse(x1[i],y1[i],10,10);
+                    alpha[i]=alpha[i]+alphaVel[i];
+                }
+            }
+
+            
         }
     }   
 }
+
