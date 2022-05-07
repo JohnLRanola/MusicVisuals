@@ -1,14 +1,6 @@
 package ie.tudublin;
 
-import example.CubeVisual;
-import c123456.ourVisual;
-import c123456.knots;
-import c123456.balls;
-import c123456.windmill;
-import c123456.ball;
-import example.RotatingAudioBands;
-import c123456.heart;
-import c123456.Nadia_JohnVisual;
+import c123456.*;
 
 // lol i am doing cool code
 

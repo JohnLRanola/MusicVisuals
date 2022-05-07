@@ -1,10 +1,7 @@
 package c123456;
 
-import ie.tudublin.*;
-import ddf.minim.AudioBuffer;
-import ddf.minim.AudioInput;
-import ddf.minim.AudioPlayer;
-import ddf.minim.Minim;
+import ie.tudublin.Visual;
+import ddf.minim.*;
 
 
 public class Nadia_JohnVisual extends Visual {
@@ -75,22 +72,25 @@ public class Nadia_JohnVisual extends Visual {
         switch (mode)
         {
             case 0:
-            background(255);
-            fill(174, 237, 142);
+            background(247, 156, 244);
             textAlign(CENTER, CENTER);
             textSize(width/20.0f);
 
             //This shows the title of our song
+            fill(143, 0, 0);
             text("Surface Pressure from Encanto", width/2.0f, height/3.0f);
             
             textSize(width/35.0f);
 
             //This lists our visualisers
+            fill(143, 0, 0);
             text("Press 1 for: ", width/2.0f, (height/3.0f) + 100);
             text("Press 2 for: ", width/2.0f, (height/3.0f) + 150);
             text("Press 3 for: ", width/2.0f, (height/3.0f) + 200);
             text("Press 4 for: ", width/2.0f, (height/3.0f) + 250);
             text("Press 5 for: ", width/2.0f, (height/3.0f) + 300);
+            text("Press SPACEBAR to pause/start ", width/2.0f, (height/3.0f) + 450);
+            text("Press 0 to return back to MENU", width/2.0f, (height/3.0f) + 500);
 
             break;
 
