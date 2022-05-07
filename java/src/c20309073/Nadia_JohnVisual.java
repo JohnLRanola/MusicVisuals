@@ -1,4 +1,4 @@
-package c123456;
+package c20309073;
 
 import ie.tudublin.Visual;
 import ddf.minim.*;
@@ -91,7 +91,7 @@ public class Nadia_JohnVisual extends Visual {
                 //This lists our visualisers
                 fill(143, 0, 0);
                 text("Press 1 for Fireworks Visualiser ", width/2.0f, (height/3.0f) + 100);
-                text("Press 2 for Balls Visualiser", width/2.0f, (height/3.0f) + 150);
+                text("Press 2 for Spheres Visualiser", width/2.0f, (height/3.0f) + 150);
                 text("Press 3 for Heart Visualiser", width/2.0f, (height/3.0f) + 200);
                 text("Press 4 for Space Visualiser ", width/2.0f, (height/3.0f) + 250);
                 text("Press 5 for Spikes Visualiser", width/2.0f, (height/3.0f) + 300);
@@ -117,22 +117,22 @@ public class Nadia_JohnVisual extends Visual {
                 for (int i = 0; i < ap.bufferSize() - 1; i++) {
                     
                     //This variable is used to make the inner circle 
-                    float angle = sin(i+spin1)* 10; 
+                    float circle1 = sin(i+spin1)* 10; 
 
                     //This variable is used to make the outer circle
-                    float angle2 = sin(i+spin2)* 300; 
+                    float circle2 = sin(i+spin2)* 300; 
                     
                     //This float is used to spread particles in the x axis
-                    float x = sin(radians(i))*(angle2+30); 
+                    float x = sin(radians(i))*(circle2+30); 
 
                     //This float is used to spread particles in the y axis
-                    float y = cos(radians(i))*(angle2+30);
+                    float y = cos(radians(i))*(circle2+30);
                     
                     //This float is used to make the inner circle
-                    float x3 = sin(radians(i))*(500/angle); 
+                    float x3 = sin(radians(i))*(500/circle1); 
 
                     //This float is used to make the outer circle
-                    float y3 = cos(radians(i))*(500/angle);
+                    float y3 = cos(radians(i))*(500/circle1);
                     
                     fill (255, 255, 153); 
 
