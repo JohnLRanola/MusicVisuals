@@ -23,6 +23,9 @@ public class ball extends PApplet {
     float [] z;
     float [] c;
     float num = 100;
+    public ball(Nadia_JohnVisual nadia_JohnVisual) {
+    }
+
     public void setup()
     {
         noCursor();
