@@ -21,6 +21,8 @@ If the user presses space while the music is playing, the music stops.
 
 This project uses the minim library in java to make shapes react to music. We used a switch statement to alternate between the different animations. We researched and used multiple trigonometric functions throughout our program. This helped us create more complex shapes like a heart. 
 
+https://github.com/JohnLRanola/MusicVisuals/blob/master/images/menu.png
+
 Our first visualiser is similar to a mandala pattern. This visualiser reacted to the audio by spinning and creating particles. It uses basic trignometry functions to make the outline of a sun and form the outer circle.
 
 Our second visualiser consists of multiple circles being merged into one reactive shape. This creats the illsuion of the visual being 3D. These circles react to the audio on its x and y axis making them split apart from each other the louder the music gets.
