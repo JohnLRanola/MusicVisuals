@@ -21,19 +21,32 @@ If the user presses space while the music is playing, the music stops.
 
 This project uses the minim library in java to make shapes react to music. We used a switch statement to alternate between the different animations. We researched and used multiple trigonometric functions throughout our program. This helped us create more complex shapes like a heart. 
 
-https://github.com/JohnLRanola/MusicVisuals/blob/master/images/menu.png
 ![A Menu](https://github.com/JohnLRanola/MusicVisuals/blob/master/images/menu.png)
 
 
 Our first visualiser is similar to a mandala pattern. This visualiser reacted to the audio by spinning and creating particles. It uses basic trignometry functions to make the outline of a sun and form the outer circle.
 
+![Fireworks](https://github.com/JohnLRanola/MusicVisuals/blob/master/images/fireworks.png)
+
+
 Our second visualiser consists of multiple circles being merged into one reactive shape. This creats the illsuion of the visual being 3D. These circles react to the audio on its x and y axis making them split apart from each other the louder the music gets.
+
+![Sphere](https://github.com/JohnLRanola/MusicVisuals/blob/master/images/sphere.png)
+
 
 Our third visualiser is a flowing heart that is formed constantly. This is done using trignometric functions. These functions are altered by using the audio of our song to make the heart spread apart making it have a sort of glitching or bouncing effect. This was done by making the x axis react to the audio.
 
+![Heart](https://github.com/JohnLRanola/MusicVisuals/blob/master/images/heart.png)
+
+
 Our fourth visualiser resembles a colourful pixeliesd galaxy. It consists of two for loops reaching a hundred. This is so that all the particles could be made on the screen. These particles then react to the audio by appearing on the screen and lighting up.
 
+![Space](https://github.com/JohnLRanola/MusicVisuals/blob/master/images/space.png)
+
+
 Our last visualiser is made up of lines with circles at the end. These lines form from the centre of the screen. This uses arrays to make individual lines for the visualiser. The length of the lines and their velocity are randomised. The array values are used in our ellipse. The whole visuliser is composed of a circle, which is not seen, as the background is black. This makes the illusion of hundreds of lines emerging when reacting to the audio.
+
+![Sticks](https://github.com/JohnLRanola/MusicVisuals/blob/master/images/unknown.png)
 
 
 # What we are most proud of in the assignment
