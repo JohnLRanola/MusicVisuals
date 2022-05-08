@@ -1,89 +1,55 @@
 # Music Visualiser Project
 
-Name:
+Names: John Ranola, Nadia Labuda
 
-Student Number: 
-
-## Instructions
-- Fork this repository and use it a starter project for your assignment
-- Create a new package named your student number and put all your code in this package.
-- You should start by creating a subclass of ie.tudublin.Visual
-- There is an example visualiser called MyVisual in the example package
-- Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
+Student Number: C20309073, C20417354
 
 # Description of the assignment
 
+This project is a music visualiser. It creates images that are reactive to the music. We decided to use the song "Surface Pressure" from the Disney movie Encanto. Our first visualiser, "fireworks," is reminiscent of a mandela pattern. It is made up of an inner and outer circle and has particles surrounding it. Our next visualiser, "spheres," is composed of multiple circles moving in the opposite directions. The third visualiser, "heart," is a flowing heart that bounces up and down according to the beat. The fourth visualiser, "Space" depicts many multi-coloured pixels that compose somewhat of a galaxy image. Our final visualiser, "spikes," is composed of lines with circles at the end of them.
+
 # Instructions
+
+When the user presses F5, the file will run.
+The menu is displayed to the user.
+When the user presses space, the music begins to play.
+The user can choose between the different animations by selecting numbers from between 1 to 5 on the keyboard.
+When the user presses 0, the menu is displayed again.
+If the user presses space while the music is playing, the music stops.
 
 # How it works
 
-# What I am most proud of in the assignment
+This project uses the minim library in java to make shapes react to music. We used a switch statement to alternate between the different animations. We used a lot trigonometric functions throughout our program. This meant we could make more complex shapes like our heart. 
 
-# Markdown Tutorial
+Our first visualiser was similar to the mandela pattern. This visualiser reacted to the audio by spinning and making particles. It uses basic trignometry functions to make the outline of a sun and make the outer circle. 
 
-This is *emphasis*
+Our second visualiser consisted of multiple circles being formed into one. This created the illsuion of it being 3d. These circles would react to the audio on its x and y axis making them split apart from each other the louder the music got. 
 
-This is a bulleted list
+Our third visualiser was a constant heart that was being made. This was done using trignometric functions. These functions would then be altered by using the audio of our song to make the heart spread apart making it have a sort of glitching effect. This was done by making the x axis react to the audio.
 
-- Item
-- Item
+Our fourth visualiser consisted of a of two for loops that would go to a hundred. This was made so that all the particels could be made for the screen. These particles would then react to the audio by lighting up.
 
-This is a numbered list
+Our last visualiser used arrays to make individual lines for the visualiser. The arrays values are used in our ellipse. The whole visuliser is actually a circle but is not seen as the background is black. This makes the illusion of hundreds of lines coming out when reacting to the audio.
 
-1. Item
-1. Item
 
-This is a [hyperlink](http://bryanduggan.org)
 
-# Headings
-## Headings
-#### Headings
-##### Headings
+# What we are most proud of in the assignment
 
-This is code:
+We are proud of this assignment because of all the things we learned throughout it. We faced difficulty in understanding how some processing functions worked, but through trying things out, we now have a much better understanding of processing in java. At the start of the project we didn't really know how to begin or progress due to us not being familiar with java but towards the end we found ourselves appreciating the language. Java is a really fun language to experiment with and this assignment proved that. Our project heavily emphasised on trigonometry this meant we had the opportunity to experiment with different mathematical functions to achieve our finished visuals. By the end of the project we had a better understanding of how to use these mathematical functions. We are proud of making varying visuals react to the music effectively. 
 
-```Java
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
+# Conclusion
 
-So is this without specifying the language:
+Overall, this was a fun, experimental and playful assignment, where we could express our creativity and explore with different functions of java. This whole assignment offered a lot of freedom. We made the best duo as our creativeness and smarts made visuals that we never knew were possible within java. It opened our eyes to what the language could offer. By the end of our project we craved to do more and learn more about the whole language. It seems like there is no limit when it comes to java and creativity.
 
-```
-public void render()
-{
-	ui.noFill();
-	ui.stroke(255);
-	ui.rect(x, y, width, height);
-	ui.textAlign(PApplet.CENTER, PApplet.CENTER);
-	ui.text(text, x + width * 0.5f, y + height * 0.5f);
-}
-```
+# Youtube Video
+https://youtu.be/PA3iv0ZZAx0
 
-This is an image using a relative URL:
+# References
 
-![An image](images/p8.png)
+https://processing.org/tutorials/
 
-This is an image using an absolute URL:
+https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw
 
-![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
+https://mathworld.wolfram.com/HeartCurve.html
 
-This is a youtube video:
-
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
-
-This is a table:
-
-| Heading 1 | Heading 2 |
-|-----------|-----------|
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-|Some stuff | Some more stuff in this column |
-
+https://www.geeksforgeeks.org/trigonometric-functions-in-java-with-examples/
