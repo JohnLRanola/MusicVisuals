@@ -271,7 +271,11 @@ public class Nadia_JohnVisual extends Visual
                         float b = x + a / H + f;
                         x = sin(b) - cos(a);
                         y = cos(b) - sin(a);
+			
+			//The map() function took the incrementing values of the for loops 
                         fill (map(i, 0, H, 0, 255), map(j, 0, H, 0, 255), (x + y)*256);
+			
+			//The rect() uses the calculated x and y values earlier. The width and height is then made to react to the audio
                         rect (x * width/4 + width/2, y * height/4 + height/2, ap.right.get(i)*20, ap.left.get(i)*20);
                     } // end for
                 } // end for 
